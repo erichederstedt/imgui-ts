@@ -240,6 +240,44 @@ export interface reference_ImGuiSizeCallbackData extends Emscripten.EmscriptenCl
     DesiredSize: reference_ImVec2;
 }
 
+export interface TextEditorErrorMarker { line: number; message: string; }
+
+// ImGuiColorTextEdit (imgui/TextEditor.cpp, wrapped in imgui/embind/bind-texteditor.cpp).
+// Line numbers are 1-based. Call delete() when done with an instance.
+export class TextEditor extends Emscripten.EmscriptenClass {
+    SetText(text: string): void;
+    GetText(): string;
+    IsTextChanged(): boolean;
+    GetTotalLines(): number;
+    GetSelectedText(): string;
+    Render(title: string, width: number, height: number, border: boolean): void;
+    SetReadOnly(value: boolean): void;
+    IsReadOnly(): boolean;
+    SetTabSize(value: number): void;
+    SetShowWhitespaces(value: boolean): void;
+    SetHandleKeyboardInputs(value: boolean): void;
+    SetHandleMouseInputs(value: boolean): void;
+    SetGutterTogglesBreakpoints(value: boolean): void;
+    SetPalette(name: "dark" | "light" | "retroblue"): void;
+    SetLanguage(name: "glsl" | "hlsl" | "c" | "cpp"): void;
+    GetCursorLine(): number;
+    GetCursorColumn(): number;
+    SetCursorPosition(line: number, column: number): void;
+    CanUndo(): boolean;
+    CanRedo(): boolean;
+    Undo(): void;
+    Redo(): void;
+    ToggleBreakpoint(line: number): boolean;
+    ConsumeBreakpointsChanged(): boolean;
+    SetBreakpoints(lines: number[]): void;
+    GetBreakpoints(): number[];
+    SetExecutionLine(line: number, scrollTo: boolean): void;
+    GetExecutionLine(): number;
+    SetExecutionLineColor(r: number, g: number, b: number, a: number): void;
+    SetErrorMarkers(markers: TextEditorErrorMarker[]): void;
+    ClearErrorMarkers(): void;
+}
+
 export class ImGuiListClipper extends Emscripten.EmscriptenClass {
     public DisplayStart: number;
     public DisplayEnd: number;
@@ -1190,6 +1228,7 @@ export interface Module extends Emscripten.EmscriptenModule {
     FLT_MAX:number;
 
     ImGuiListClipper: { new(): ImGuiListClipper; };
+    TextEditor: { new(): TextEditor; };
     ImGuiStyle: { new(): ImGuiStyle; };
 
     // Context creation and access

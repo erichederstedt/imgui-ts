@@ -1,6 +1,6 @@
 {
-  "name": "@zhobo63/imgui-ts",
-  "version": "0.1.53",
+  "name": "@eric.hederstedt/imgui-ts",
+  "version": "0.1.54",
   "description": "JavaScript bindings for Dear ImGui using Emscripten and TypeScript, modulized with webpack from imgui-js",
   "main": "./src/index",
   "scripts": {
@@ -13,9 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhobo63/imgui-ts.git"
+    "url": "git+https://github.com/erichederstedt/imgui-ts.git"
   },
-  "author": "zhobo63",
+  "author": "eric.hederstedt",
   "license": "MIT",
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.7",
@@ -28,7 +28,7 @@
     "@types/emscripten": "^1.40.1"
   },
   "bugs": {
-    "url": "https://github.com/zhobo63/imgui-ts/issues"
+    "url": "https://github.com/erichederstedt/imgui-ts/issues"
   },
-  "homepage": "https://github.com/zhobo63/imgui-ts#readme"
+  "homepage": "https://github.com/erichederstedt/imgui-ts#readme"
 }

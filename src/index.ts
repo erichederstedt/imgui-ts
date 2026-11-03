@@ -1,8 +1,11 @@
 import * as ImGui from "./imgui"
 import { ImVec4 } from "./imgui";
 import * as ImGui_Impl from "./imgui_impl"
+import { CreateTextEditor, TextEditor, TextEditorErrorMarker } from "./texteditor"
 
 export {ImGui, ImGui_Impl, ImVec4}
+export { CreateTextEditor }
+export type { TextEditor, TextEditorErrorMarker }
 
 export const version="0.1.53";
 
